@@ -1,5 +1,5 @@
 <h1>Clove Dental Landing Page</h1>
-<a href="https://clove-dantal-sample.netlify.app/">https://clove-dantal-sample.netlify.app/</a>
+<a href="https://clove-dantal-lp.netlify.app/">https://clove-dantal-lp.netlify.app/</a>
 <div >
 
 <h1>Clove Dental – Frontend</h1>
@@ -47,3 +47,4 @@ The design is clean, simple, and optimized for all screen sizes.
 <p><code>POST /api/send-email</code></p>
 
 </div>
+
