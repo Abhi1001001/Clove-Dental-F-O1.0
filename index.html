@@ -1,0 +1,1561 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Owl Carousel CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: #fffaf5;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Header Container */
+      .header-parent {
+        background-color: #fff9f4;
+        position: sticky;
+        top: 0px;
+        z-index: 9999;
+      }
+
+      .header {
+        max-width: 1280px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        margin: auto;
+      }
+
+      /* Logo */
+      .logo {
+        font-size: 36px;
+        font-weight: 600;
+        color: #e67d22;
+        letter-spacing: 1px;
+      }
+      .logo span {
+        color: #4a2c1a;
+      }
+      .tag {
+        font-size: 12px;
+        color: #4a2c1a;
+        letter-spacing: 5px;
+      }
+
+      /* Right Buttons */
+      .right-buttons {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+      /* Book Appoinment Button */
+      .book-btn {
+        display: flex;
+        align-items: center;
+        background: #f9a44c;
+        padding: 12px 25px;
+        border-radius: 30px;
+        border: 2px solid #e3913c;
+        font-size: 16px;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .book-btn img {
+        width: 20px;
+        margin-right: 10px;
+      }
+
+      /* Phone Button */
+      .phone-btn {
+        display: flex;
+        align-items: center;
+        padding: 12px 25px;
+        border-radius: 30px;
+        border: 2px solid #2f1f15;
+        font-size: 16px;
+        color: #2f1f15;
+        text-decoration: none;
+        cursor: pointer;
+        font-weight: 600;
+        background: #fffaf5;
+      }
+
+      .phone-btn img {
+        width: 15px;
+        margin-right: 10px;
+      }
+      .hero-parent {
+        background: url("./images/hero-img.jpg") center/cover no-repeat;
+      }
+      .blur {
+        backdrop-filter: blur(5px);
+      }
+
+      .hero {
+        display: flex;
+        max-width: 1280px;
+        height: auto;
+        margin: auto;
+        position: relative;
+      }
+
+      /* Left Content Box */
+      .left-box {
+        position: absolute;
+        top: 30%;
+        background: #ffffff82;
+        backdrop-filter: blur(15px);
+        padding: 30px 40px;
+        border-radius: 6px;
+        max-width: 500px;
+      }
+
+      .left-box h2 {
+        margin: 0;
+        font-size: 24px;
+        color: #2a2a2a;
+      }
+
+      .left-box p {
+        color: #555;
+        margin: 8px 0 20px 0;
+      }
+
+      .left-box .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 24px;
+        border-radius: 30px;
+        background: #f9a44c;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        border: 2px solid #e39132;
+        cursor: pointer;
+      }
+
+      /* Doctor Image */
+      .doctor-img {
+        position: absolute;
+        bottom: -5px;
+        left: 20%;
+        /* transform: translateX(-50%); */
+        transform: scaleX(-1);
+      }
+
+      .doctor-img img {
+        height: 800px;
+        object-fit: contain;
+      }
+
+      /* Right Form Box */
+      .form-box-desktop {
+        width: 420px;
+        background: #fff7f0;
+        padding: 40px;
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.08);
+      }
+
+      .form-box-mobile {
+        display: none;
+      }
+
+      .form-box-desktop h2 {
+        margin: 0 0 10px;
+        color: #2a2a2a;
+      }
+
+      .form-box-desktop p {
+        color: #555;
+        margin-bottom: 25px;
+        line-height: 1.4;
+      }
+
+      .form-box-desktop .input {
+        width: 90%;
+        padding: 14px 16px;
+        margin-bottom: 15px;
+        border-radius: 30px;
+        border: 1px solid #ddd;
+        font-size: 15px;
+        outline: none;
+      }
+
+      /* Captcha Row */
+
+      /* .captcha-box {
+        width: 90px;
+        background: #3b2418;
+        color: #fff;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 16px;
+      } */
+
+      .checkbox-row {
+        display: flex;
+        align-items: center;
+        margin: 20px 0px;
+        font-size: 14px;
+        color: #444;
+      }
+
+      .checkbox-row input {
+        margin-right: 8px;
+      }
+
+      .form-btn {
+        background: #f9a44c;
+        padding: 14px;
+        border-radius: 30px;
+        border: 2px solid #e39132;
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .stats-section {
+        padding: 20px 0;
+        background: #fffaf5;
+        max-height: 100px !important;
+      }
+
+      .owl-item {
+        text-align: center;
+      }
+
+      .stat-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #422a1a;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .stat-box img {
+        width: 45px !important;
+        margin-bottom: 10px;
+      }
+
+      .highlight {
+        color: #f6913a;
+        font-weight: bold;
+        margin-right: 4px;
+      }
+
+      .section-wrapper {
+        max-width: 1280px;
+        margin: auto;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .section-wrapper h2 {
+        font-size: 26px;
+        margin: 0;
+        color: #222;
+      }
+
+      .section-wrapper p {
+        color: #555;
+        margin: 5px 0 30px;
+      }
+
+      /* Card container */
+      .treatment-row {
+        width: 100%;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .treatment-row .card {
+        width: 80%;
+        background: #fff;
+        border: 1px solid #ececec;
+        border-radius: 12px;
+        display: flex;
+        padding: 20px;
+        gap: 20px;
+      }
+
+      .treatment-row .card img {
+        width: 50%;
+        border-radius: 10px;
+      }
+
+      .treatment-row .card-content {
+        width: 50%;
+        text-align: left;
+      }
+
+      .treatment-row .card-content h3 {
+        margin: 0;
+        color: #222;
+        white-space: nowrap;
+      }
+
+      .treatment-row .card-content p {
+        margin: 6px 0 10px;
+        color: #666;
+        font-size: 14px;
+      }
+
+      .treatment-row .card-content ul {
+        padding-left: 18px;
+        margin: 0 0 15px;
+      }
+
+      .start-price {
+        margin: 5px 0;
+        font-weight: bold;
+        color: #222;
+      }
+
+      .price-value {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      .consult-btn {
+        display: inline-block;
+        padding: 12px 22px;
+        border-radius: 30px;
+        background: #f6922e;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+        border: 2px solid #e18522;
+      }
+
+      .smile-section {
+        max-width: 1200px;
+        margin: auto;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .smile-section h2 {
+        margin: 0;
+        font-size: 26px;
+        color: #222;
+      }
+
+      .smile-section p {
+        margin: 8px 0 30px;
+        color: #555;
+        font-size: 15px;
+      }
+
+      /* Grid styling */
+      .smile-grid {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 25px;
+      }
+
+      .smile-card {
+        width: 240px;
+        text-align: center;
+      }
+
+      .smile-card img {
+        width: 100%;
+        border-radius: 12px;
+        display: block;
+      }
+
+      .name {
+        margin-top: 8px;
+        font-weight: bold;
+        font-size: 15px;
+        color: #222;
+      }
+
+      .city {
+        margin-top: 2px;
+        font-size: 13px;
+        color: #e67e22;
+      }
+
+      .choose-section {
+        max-width: 1280px;
+        margin: auto;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .choose-section h2 {
+        margin: 0;
+        font-size: 22px;
+        color: #222;
+      }
+
+      .choose-section p.subtitle {
+        margin: 6px 0 35px;
+        font-size: 14px;
+        color: #555;
+      }
+
+      .choose-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .left-list {
+        flex: 1;
+        min-width: 250px;
+      }
+      .list {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        padding: 0px 5px;
+      }
+
+      .left-list p {
+        margin: 18px 0;
+        font-size: 15px;
+        color: #222;
+      }
+
+      .icons {
+        font-size: 24px;
+        font-weight: bold;
+        color: #d57418;
+        cursor: pointer;
+      }
+
+      .right-img {
+        flex: 1;
+        min-width: 260px;
+        text-align: center;
+      }
+
+      .right-img img {
+        width: 100%;
+        max-width: 420px;
+        border-radius: 14px;
+      }
+
+      .patients-section {
+        margin: auto;
+        padding: 40px 20px;
+        text-align: center;
+      }
+      #patient-carousel,
+      .owl-stage-outer,
+      .owl-stage {
+        max-height: 400px !important;
+      }
+
+      .patients-title {
+        font-size: 28px;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .patients-subtitle {
+        color: #555;
+        margin: 10px 0 40px;
+        font-size: 16px;
+      }
+
+      /* Card */
+      .patient-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 12px;
+        text-align: center;
+      }
+
+      .patient-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+
+      .patient-card h4 {
+        margin: 10px 0 2px;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .treatment {
+        color: #ff7b00;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .city {
+        color: #666;
+        font-size: 14px;
+        margin-top: 3px;
+      }
+
+      /* Carousel item spacing */
+      .owl-item {
+        padding: 10px;
+      }
+      .header-section-parent {
+        background: #fffaf5;
+      }
+
+      .header-section {
+        max-width: 1280px;
+        padding: 30px 20px;
+        max-width: 1300px;
+        margin: auto;
+      }
+
+      .title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 30px;
+        color: #333;
+      }
+
+      .form-row {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .form-row input[type="text"],
+      .form-row input[type="tel"] {
+        flex: 1;
+        padding: 14px;
+        border-radius: 25px;
+        border: 1px solid #ffd8c2;
+        outline: none;
+        font-size: 14px;
+        background: #fff;
+      }
+
+      .captcha-box {
+        display: flex;
+        flex: 1;
+        min-width: 200px;
+        border-radius: 25px;
+        overflow: hidden;
+        border: 1px solid #ffd8c2;
+      }
+
+      .captcha-box input {
+        flex: 1;
+        padding: 14px;
+        border: none;
+        outline: none;
+        font-size: 14px;
+      }
+
+      .captcha-code {
+        background: #4a2e1b;
+        color: #fff;
+        padding: 14px 25px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+      }
+
+      .agreement {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        color: #333;
+      }
+
+      .agreement input {
+        margin-right: 8px;
+      }
+
+      .btn-container {
+        margin-top: 20px;
+        text-align: left;
+      }
+
+      .btn-container button {
+        background: #ff8c00;
+        color: #fff;
+        padding: 14px 40px;
+        border: none;
+        border-radius: 25px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      .safety-section {
+        max-width: 1280px;
+        padding: 40px 20px;
+        max-width: 1300px;
+        margin: auto;
+        text-align: center;
+      }
+
+      .safety-section h2 {
+        font-size: 26px;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 8px;
+      }
+
+      .safety-section p {
+        color: #666;
+        font-size: 15px;
+        margin-bottom: 35px;
+      }
+
+      .safety-section .cards {
+        display: flex;
+        gap: 25px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .safety-section .owl-carousel .owl-item img {
+        width: 16px;
+      }
+
+      .safety-section .card {
+        width: 380px;
+        height: 330px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 18px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        padding: 15px;
+        align-items: end;
+        overflow: hidden;
+      }
+
+      .safety-section .card-content {
+        /* position: absolute; */
+        /* bottom: 0; */
+        width: 100%;
+        background: rgba(7, 20, 36, 0.9);
+        padding: 20px;
+        border-radius: 18px 18px 0 0;
+        color: white;
+        text-align: left;
+      }
+
+      .safety-section .card-title {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+
+      .safety-section .underline {
+        width: 120px;
+        height: 6px;
+        background: #ff8c00;
+        border-radius: 4px;
+        margin-bottom: 12px;
+      }
+
+      .safety-section .card-text {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 18px;
+      }
+
+      .safety-section .learn-more {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        text-decoration: none;
+        color: #ff8c00;
+        font-weight: 600;
+      }
+
+      .safety-section .learn-more span {
+        font-size: 18px;
+        margin-top: 2px;
+      }
+      .smile-section .owl-stage-outer,
+      .owl-stage {
+        max-height: 200px !important;
+      }
+      .treatment-row .owl-stage-outer,
+      .owl-stage {
+        max-height: 300px !important;
+      }
+
+      .accordion {
+        cursor: pointer;
+        width: 100%;
+        text-align: left;
+        border: none;
+        outline: none;
+        transition: 0.4s;
+      }
+      .choose-section .active,
+      .accordion:hover {
+        background-color: #ccc;
+      }
+      .panel {
+        padding: 0 18px;
+        background-color: white;
+        display: none;
+        overflow: hidden;
+      }
+      .stats-section .owl-carousel .owl-stage-outer {
+        max-height: 98px !important;
+      }
+      .zoom {
+        opacity: 0;
+        transform: scale(0.9);
+        transition: 0.5s ease;
+      }
+
+      .zoom.show {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* Responsive */
+      @media (max-width: 992px) {
+        .card {
+          width: 100%;
+        }
+        .choose-container {
+          justify-content: center;
+          text-align: center;
+          align-items: center;
+        }
+
+        .left-list p {
+          text-align: center;
+        }
+
+        .icons {
+          flex-direction: row;
+          gap: 15px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header {
+          padding: 10px 5px;
+        }
+        .book-btn {
+          display: none;
+        }
+        .doctor-img {
+          left: 20%;
+        }
+
+        .doctor-img img {
+          height: 500px;
+        }
+
+        .hero {
+          flex-direction: column;
+          height: 50vh;
+        }
+        .left-box {
+          top: 10%;
+        }
+
+        .form-box-desktop {
+          display: none;
+        }
+        .form-box-mobile {
+          /* width: 100%; */
+          background: #fff7f0;
+          padding: 40px;
+          margin-left: auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          box-shadow: -2px 0 10px rgba(0, 0, 0, 0.08);
+        }
+        .form-box-mobile h2 {
+          margin: 0 0 10px;
+          color: #2a2a2a;
+        }
+
+        .form-box-mobile p {
+          color: #555;
+          margin-bottom: 25px;
+          line-height: 1.4;
+        }
+
+        .form-box-mobile .input {
+          width: 90%;
+          padding: 14px 16px;
+          margin-bottom: 15px;
+          border-radius: 30px;
+          border: 1px solid #ddd;
+          font-size: 15px;
+          outline: none;
+        }
+        /* .card {
+          flex-direction: column;
+          text-align: center;
+          padding: 20px;
+        } */
+        .owl-stage-outer,
+        .owl-stage {
+          max-height: inherit !important;
+        }
+        .left-list {
+          width: 100%;
+        }
+
+        .treatment-row .card {
+          width: 250px !important;
+          flex-direction: column;
+          justify-content: center;
+          align-items: start;
+        }
+        .treatment-row .card img {
+          width: 100%;
+        }
+        .treatment-row .card .card-content {
+          width: 100%;
+        }
+        .owl-item {
+          width: 300px !important;
+        }
+
+        .treatment-row .card img {
+          width: 100%;
+        }
+
+        .treatment-row .card-content {
+          width: 100%;
+          text-align: center;
+        }
+
+        .treatment-row .card-content ul {
+          text-align: left;
+          display: inline-block;
+        }
+        .treatment-row .owl-stage-outer,
+        .owl-stage {
+          max-height: 600px !important;
+        }
+
+        .safety-section .card {
+          width: 280px;
+        }
+        .smile-card {
+          width: 45%;
+        }
+        .btn-container {
+          text-align: center;
+        }
+        .choose-container {
+          flex-direction: column-reverse;
+        }
+        /* .card {
+            width: 100%;
+          } */
+      }
+      @media (max-width: 500px) {
+        .smile-card {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header ---------------- -->
+    <header class="header-parent">
+      <div class="header">
+        <!-- Logo Section -->
+        <div>
+          <div class="logo">clove<span>:)</span></div>
+          <div class="tag">D E N T A L</div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="right-buttons zoom">
+          <a href="#" class="book-btn">
+            <img src="./images/appointment-icon.png" alt="appointment-icon" />
+            Book Appointment
+          </a>
+
+          <a href="tel:9856589510" class="phone-btn zoom">
+            <img src="./images/phone-icon.png" alt="phone" />
+            985-6589-510
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -------------------- -->
+    <section class="hero-parent">
+      <div class="blur">
+        <div class="hero">
+          <!-- Left Floating Text Box -->
+          <div class="left-box zoom">
+            <h2>Painless Root Canal Treatment in Delhi</h2>
+            <p>Expert RCT. Zero Pain. Right Here in Delhi.</p>
+            <a href="#" class="btn">
+              <img src="./images/appointment-icon.png" width="20" />
+              Book Appointment
+            </a>
+          </div>
+
+          <!-- Doctor Image -->
+          <div class="doctor-img">
+            <img src="./images/hero-docter-img.png" alt="Doctor Image" />
+          </div>
+
+          <!-- Right Form Section -->
+          <div class="form-box-desktop">
+            <h2>Get Expert Dental Guidance in Delhi</h2>
+            <p>
+              Book your free consultation today and take the first step towards
+              healthy, beautiful teeth.
+            </p>
+
+            <form action="">
+              <input id="name" type="text" class="input" placeholder="Name" />
+              <input
+                id="email"
+                type="email"
+                class="input"
+                placeholder="Email"
+              />
+              <input
+                id="phone"
+                type="text"
+                class="input"
+                placeholder="Mobile Number"
+              />
+
+              <div class="captcha-box">
+                <input id="captcha-input" type="text" placeholder="Captcha" />
+                <div id="captcha" class="captcha-code"></div>
+              </div>
+
+              <div class="checkbox-row">
+                <input type="checkbox" />
+                <label
+                  >I agree to CLOVE Dental’s Terms and Privacy Policy.</label
+                >
+              </div>
+
+              <button type="submit" class="form-btn" id="submit-btn">
+                Book a Free Consultation
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Carousel ---------------- -->
+    <section class="stats-section">
+      <div id="stats-carousel" class="owl-carousel owl-theme">
+        <div class="item stat-box">
+          <img src="./images/Clinics.png" alt="Clinics" />
+          <span><span class="highlight">600+</span> Clinics</span>
+        </div>
+
+        <div class="item stat-box">
+          <img src="./images/dentists.png" alt="Dentists" />
+          <span><span class="highlight">1300+</span> Dentists</span>
+        </div>
+
+        <div class="item stat-box">
+          <img src="./images/Happy Patients.png" alt="Happy Patients" />
+          <span><span class="highlight">30 L+</span> Happy Patients</span>
+        </div>
+
+        <div class="item stat-box">
+          <img src="./images/tooth.png" alt="Ortho Cases" />
+          <span><span class="highlight">35K+</span> Ortho Cases</span>
+        </div>
+
+        <div class="item stat-box">
+          <img src="./images/Implant.png" alt="implants placed" />
+          <span><span class="highlight">55K+</span> Implants Placed</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Form Section -->
+    <div class="form-box-mobile">
+      <h2>Get Expert Dental Guidance in Delhi</h2>
+      <p>
+        Book your free consultation today and take the first step towards
+        healthy, beautiful teeth.
+      </p>
+      <form action="">
+        <input id="name" type="text" class="input" placeholder="Name" />
+        <input
+          id="mobile"
+          type="text"
+          class="input"
+          placeholder="Mobile Number"
+        />
+
+        <div class="captcha-box">
+          <input type="text" placeholder="Captcha" />
+          <div class="captcha-code">1514</div>
+        </div>
+
+        <div class="checkbox-row">
+          <input type="checkbox" />
+          <label>I agree to CLOVE Dental’s Terms and Privacy Policy.</label>
+        </div>
+
+        <button type="submit" class="form-btn">Book a Free Consultation</button>
+      </form>
+    </div>
+
+    <!-- Root Canal Treatments --------- -->
+    <section class="section-wrapper">
+      <h2>Types of Root Canal Treatments</h2>
+      <p>
+        In a root canal, the dentist removes infected pulp, cleans the tooth,
+        and fills it with special material.
+      </p>
+
+      <div class="treatment-row">
+        <div id="root-canal" class="owl-carousel owl-theme">
+          <!-- Card 1 -->
+          <div class="card item">
+            <img class="zoom" src="./images/image 453.png" alt="image453" />
+            <div class="card-content">
+              <h3>Root Canal Treatment</h3>
+              <p>Ideal for infected or damaged tooth</p>
+
+              <b>Types of RCT</b>
+              <ul>
+                <li>Root Canal Treatment</li>
+                <li>Splt RCT</li>
+                <li>Splt RCT with rubber dam</li>
+                <li>Splt RCT with laser</li>
+              </ul>
+
+              <p class="start-price">Starting Price</p>
+              <p class="price-value">₹ 19,999</p>
+
+              <a href="#" class="consult-btn">Get Free Consultation</a>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card item">
+            <img class="zoom" src="./images/image 454.png" alt="image454" />
+            <div class="card-content">
+              <h3>Re-Root Canal Treatment</h3>
+              <p>Ideal issues that persist or recur after</p>
+
+              <b>Types of RCT</b>
+              <ul>
+                <li>Re-RCT with rubber dam</li>
+                <li>Re-RCT laser specialist</li>
+                <li>e-RCT with retrieval of old RCT filling</li>
+              </ul>
+
+              <p class="start-price">Starting Price</p>
+              <p class="price-value">₹ 19,999</p>
+
+              <a href="#" class="consult-btn">Get Free Consultation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real Smiles Section ------------ -->
+    <section class="smile-section">
+      <h2>Real Smiles, Real Transformations</h2>
+      <p>See the life-changing results our dental implant patients enjoy</p>
+
+      <div id="smile-carousel" class="owl-carousel owl-theme smile-grid">
+        <div class="item smile-card">
+          <img src="./images/Rectangle 68.png" alt="Arjun Mehta" />
+          <div class="name">Arjun Mehta</div>
+          <div class="city">Mumbai</div>
+        </div>
+
+        <div class="item smile-card">
+          <img src="./images/Rectangle 69.png" alt="Kavita Sharma" />
+          <div class="name">Kavita Sharma</div>
+          <div class="city">Bangalore</div>
+        </div>
+
+        <div class="item smile-card">
+          <img src="./images/Rectangle 70.png" alt="Neha Joshi" />
+          <div class="name">Neha Joshi</div>
+          <div class="city">Delhi</div>
+        </div>
+
+        <div class="item smile-card">
+          <img src="./images/Rectangle 71.png" alt="Viram Desai" />
+          <div class="name">Viram Desai</div>
+          <div class="city">Chennai</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Clove Dental----------- -->
+    <section class="choose-section">
+      <h2>Why Choose Clove Dental</h2>
+      <p class="subtitle">
+        Clove Dental is India's Leading dental care brand with 600+ clinics
+        nationwide
+      </p>
+
+      <div class="choose-container">
+        <!-- Left text -->
+        <div class="left-list">
+          <div class="list accordion">
+            <p>DORI - A.I. enabled Dental chair</p>
+            <span class="icons">+</span>
+          </div>
+          <div class="panel">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
+              maiores minus, eaque consequatur doloremque porro excepturi maxime
+              labore cumque perspiciatis.
+            </p>
+          </div>
+          <div class="list accordion">
+            <p>10x Safety and 4 steps sterilization process</p>
+            <span class="icons">+</span>
+          </div>
+          <div class="panel">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
+              maiores minus, eaque consequatur doloremque porro excepturi maxime
+              labore cumque perspiciatis.
+            </p>
+          </div>
+          <div class="list accordion">
+            <p>Experienced and Certified implantologist</p>
+            <span class="icons">+</span>
+          </div>
+          <div class="panel">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
+              maiores minus, eaque consequatur doloremque porro excepturi maxime
+              labore cumque perspiciatis.
+            </p>
+          </div>
+          <div class="list accordion">
+            <p>Updated with world class equipments</p>
+            <span class="icons">+</span>
+          </div>
+          <div class="panel">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
+              maiores minus, eaque consequatur doloremque porro excepturi maxime
+              labore cumque perspiciatis.
+            </p>
+          </div>
+          <div class="list accordion">
+            <p>Regular audits for safety protocols</p>
+            <span class="icons">+</span>
+          </div>
+          <div class="panel">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
+              maiores minus, eaque consequatur doloremque porro excepturi maxime
+              labore cumque perspiciatis.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right image -->
+        <div class="right-img zoom">
+          <img src="./images/Rectangle 27.png" alt="image" />
+        </div>
+      </div>
+    </section>
+
+    <!-- What Our Patients Say ------------------ -->
+    <section class="patients-section">
+      <h2 class="patients-title">What Our Patients Say</h2>
+      <p class="patients-subtitle">
+        Real smiles, real stories. Here’s what our patients love about their
+        CLOVE Dental experience!
+      </p>
+
+      <div id="patient-carousel" class="owl-carousel owl-theme">
+        <!-- CARD 1 -->
+        <div class="patient-card">
+          <img src="./images/Rectangle 60.png" alt="Shubham" />
+          <h4>Shubham</h4>
+          <p class="treatment">Aligners</p>
+          <p class="city">Indore</p>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="patient-card">
+          <img src="./images/Rectangle 61.png" alt="Shubpreet" />
+          <h4>Shubpreet</h4>
+          <p class="treatment">RCT</p>
+          <p class="city">Indore</p>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="patient-card">
+          <img src="./images/Rectangle 62.png" alt="Anita" />
+          <h4>Anita</h4>
+          <p class="treatment">Laser Treatment</p>
+          <p class="city">Banglore</p>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="patient-card">
+          <img src="./images/Rectangle 63.png" alt="Aarti" />
+          <h4>Aarti</h4>
+          <p class="treatment">Dentures</p>
+          <p class="city">Indore</p>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="patient-card">
+          <img src="./images/Rectangle 64.png" alt="Aditya" />
+          <h4>Aditya</h4>
+          <p class="treatment">Implant</p>
+          <p class="city">Indore</p>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="patient-card">
+          <img src="./images/Rectangle 62.png" alt="Nikita" />
+          <h4>Nikita</h4>
+          <p class="treatment">Laser Treatment</p>
+          <p class="city">Indore</p>
+        </div>
+      </div>
+    </section>
+
+    <!--  Appointment Header ------------------------  -->
+    <div class="header-section-parent">
+      <div class="header-section">
+        <h2 class="title">Book an Appointment With Clove Dentist in Delhi</h2>
+        <form action="">
+          <div class="form-row">
+            <input id="name" type="text" placeholder="Name" />
+            <input id="mobile" type="tel" placeholder="Phone" />
+
+            <div class="captcha-box">
+              <input type="text" placeholder="Captcha" />
+              <div class="captcha-code">1514</div>
+            </div>
+          </div>
+
+          <label class="agreement">
+            <input type="checkbox" />
+            I agree to CLOVE Dental's Terms & Privacy Policy and consent to
+            contact via phone, email, or SMS.
+          </label>
+
+          <div class="btn-container">
+            <button type="submit">Book Free Consultation</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Safety Section --------------------------- -->
+    <div class="safety-section">
+      <h2>Safety, Precision, and Innovation</h2>
+      <p>Advanced care with top safety, sterilization, and technology</p>
+
+      <div id="safety-section-carousel" class="owl-carousel owl-theme cards">
+        <!-- Card 1 -->
+        <div
+          class="item card"
+          style="background-image: url(&quot;./images/image\ 434.png&quot;)"
+        >
+          <div class="card-content">
+            <div class="card-title">Uncompromised Safety</div>
+            <div class="underline"></div>
+            <div class="card-text">
+              10X Safety Protocols for a secure and worry-free dental
+              experience.
+            </div>
+            <a href="#" class="learn-more">
+              <img src="./images/Search.png" width="16" />
+              Learn More <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div
+          class="item card"
+          style="background-image: url(&quot;./images/image\ 435.png&quot;)"
+        >
+          <div class="card-content">
+            <div class="card-title">Assuring Cleanliness</div>
+            <div class="underline"></div>
+            <div class="card-text">
+              Rigid 4-Step Sterilization process, assuring a safe and spotless
+              clinic.
+            </div>
+            <a href="#" class="learn-more">
+              <img src="./images/Search.png" width="16" />
+              Learn More <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div
+          class="item card"
+          style="background-image: url(&quot;./images/image\ 436.png&quot;)"
+        >
+          <div class="card-content">
+            <div class="card-title">Experience AIPS</div>
+            <div class="underline"></div>
+            <div class="card-text">
+              Our AI-Powered Sterilization Monitoring System from DORI, USA
+              exclusively at Clove.
+            </div>
+            <a href="#" class="learn-more">
+              <img src="./images/Search.png" width="16" />
+              Learn More <span>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Initialize Carousel -->
+    <script>
+      $("#stats-carousel").owlCarousel({
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: false,
+        dots: false,
+        nav: false,
+        responsive: {
+          0: { items: 2 },
+          480: { items: 3 },
+          768: { items: 4 },
+          1024: { items: 5 },
+        },
+      });
+      $("#patient-carousel").owlCarousel({
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: false,
+        dots: false,
+        nav: false,
+        responsive: {
+          0: { items: 2 },
+          480: { items: 3 },
+          768: { items: 4 },
+          1024: { items: 5 },
+        },
+      });
+
+      $("#root-canal").owlCarousel({
+        loop: true,
+        autoplay: false,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: false,
+        dots: false,
+        nav: false,
+        responsive: {
+          0: { items: 1 },
+          480: { items: 1 },
+          768: { items: 2 },
+          1024: { items: 2 },
+        },
+      });
+      $("#smile-carousel").owlCarousel({
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: false,
+        dots: false,
+        nav: false,
+        responsive: {
+          0: { items: 1 },
+          480: { items: 1 },
+          768: { items: 3 },
+          1024: { items: 4 },
+        },
+      });
+      $("#safety-section-carousel").owlCarousel({
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: false,
+        dots: false,
+        nav: false,
+        responsive: {
+          0: { items: 1 },
+          480: { items: 1 },
+          768: { items: 2 },
+          1024: { items: 3 },
+        },
+      });
+
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+          this.classList.toggle("active");
+
+          /* Toggle between hiding and showing the active panel */
+          var panel = this.nextElementSibling;
+          if (panel.style.display === "block") {
+            panel.style.display = "none";
+          } else {
+            panel.style.display = "block";
+          }
+        });
+      }
+
+      document.querySelectorAll("#phone").forEach((input) => {
+        input.addEventListener("input", (e) => {
+          e.target.value = e.target.value.replace(/\D/g, "");
+          if (e.target.value.length > 10) {
+            e.target.value = e.target.value.substr(0, 10);
+          }
+        });
+      });
+      document.querySelectorAll("#name").forEach((input) => {
+        input.addEventListener("input", (e) => {
+          e.target.value = e.target.value.replace(/[^A-Za-z]/g, "");
+        });
+      });
+
+      const zoom = document.querySelectorAll(".zoom");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      });
+
+      zoom.forEach((el) => observer.observe(el));
+
+      const form = document.querySelector("form");
+      const name = document.querySelector("#name");
+      const email = document.querySelector("#email");
+      const phone = document.querySelector("#phone");
+      const submit_btn = document.querySelector("#submit-btn");
+      const captcha = document.getElementById("captcha");
+      const captchaInput = document.getElementById("captcha-input");
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("captcha").textContent = Math.floor(
+          1000 + Math.random() * 9000,
+        );
+      });
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        submit_btn.disabled = true;
+        submit_btn.textContent = "Sending...";
+
+        if (!name.value || !email.value || !phone.value) {
+          alert("Please fill all the fields");
+          submit_btn.disabled = false;
+          submit_btn.textContent = "Book a Free Consultation";
+          return;
+        }
+
+        if (captchaInput.value !== captcha.textContent) {
+          alert("Invalid Captcha");
+          submit_btn.disabled = false;
+          submit_btn.textContent = "Book a Free Consultation";
+          return;
+        }
+
+        try {
+          const res = await fetch(
+            "https://clove-dental-b-o1-0.onrender.com/api/send-email",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                name: name.value,
+                email: email.value,
+                phone: phone.value,
+              }),
+            },
+          );
+
+          const data = await res.json();
+          console.log(data);
+
+          if (res.ok) {
+            form.reset();
+            // redirect to success page
+            window.location.href = `success.html?bookingId=${encodeURIComponent(data.bookingId)}&date=${encodeURIComponent(data.date)}`;
+            submit_btn.disabled = false;
+            submit_btn.textContent = "Book a Free Consultation";
+          } else {
+            alert("Failed to send email");
+          }
+        } catch (err) {
+          console.log(err);
+          alert("Something went wrong");
+        }
+      });
+    </script>
+  </body>
+</html>

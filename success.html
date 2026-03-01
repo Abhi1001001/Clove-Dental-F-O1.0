@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Sent Successfully</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #e67d22;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        background-color: #ffffff;
+        padding: 40px 30px;
+        border-radius: 12px;
+        text-align: center;
+        width: 100%;
+        max-width: 420px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .icon {
+        font-size: 55px;
+        color: #e67d22;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        color: #e67d22;
+        margin-bottom: 15px;
+        font-size: 26px;
+      }
+
+      p {
+        color: #444;
+        font-size: 15px;
+        margin-bottom: 25px;
+        line-height: 1.5;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        background-color: #e67d22;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 15px;
+        transition: 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #cf6f1e;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 480px) {
+        .container {
+          padding: 30px 20px;
+        }
+
+        h1 {
+          font-size: 22px;
+        }
+
+        p {
+          font-size: 14px;
+        }
+
+        .icon {
+          font-size: 45px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="icon">✔</div>
+      <h1>Appointment Confirmed</h1>
+      <p>
+        Thank you for booking your appointment with Clove Dental. Your visit has
+        been successfully scheduled.
+      </p>
+      <p>Your Booking ID: <strong id="bookingId"></strong></p>
+      <p>Appointment Date: <strong id="appointmentDate"></strong></p>
+      <p>
+        Our team is looking forward to providing you with the best dental care.
+        If you need to reschedule or have any questions, feel free to contact
+        us.
+      </p>
+      <p>See you soon and keep smiling!</p>
+      <a href="/" class="btn"> Go Back </a>
+    </div>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+
+      const bookingId = params.get("bookingId");
+      const date = params.get("date");
+
+      if (bookingId) {
+        document.getElementById("bookingId").textContent = bookingId;
+      }
+
+      if (date) {
+        document.getElementById("appointmentDate").textContent = date;
+      }
+    </script>
+  </body>
+</html>
