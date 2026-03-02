@@ -976,8 +976,12 @@
               />
 
               <div class="captcha-box">
-                <input id="captcha-input" type="text" placeholder="Captcha" />
-                <div id="captcha" class="captcha-code"></div>
+                <input
+                  class="captcha-input"
+                  type="text"
+                  placeholder="Captcha"
+                />
+                <div class="captcha captcha-code"></div>
               </div>
 
               <div class="checkbox-row">
@@ -1036,15 +1040,21 @@
       <form action="">
         <input id="name" type="text" class="input" placeholder="Name" />
         <input
-          id="mobile"
+          id="email"
+          type="email"
+          class="input"
+          placeholder="Email"
+        />
+        <input
+          id="phone"
           type="text"
           class="input"
           placeholder="Mobile Number"
         />
 
         <div class="captcha-box">
-          <input type="text" placeholder="Captcha" />
-          <div class="captcha-code">1514</div>
+          <input class="captcha-input" type="text" placeholder="Captcha" />
+          <div class="captcha captcha-code"></div>
         </div>
 
         <div class="checkbox-row">
@@ -1490,71 +1500,73 @@
 
       zoom.forEach((el) => observer.observe(el));
 
-      const form = document.querySelector("form");
-      const name = document.querySelector("#name");
-      const email = document.querySelector("#email");
-      const phone = document.querySelector("#phone");
-      const submit_btn = document.querySelector("#submit-btn");
-      const captcha = document.getElementById("captcha");
-      const captchaInput = document.getElementById("captcha-input");
+      const form = document.querySelectorAll("form");
+      const captcha = document.querySelectorAll(".captcha");
+      const captchaInput = document.querySelectorAll(".captcha-input");
       document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("captcha").textContent = Math.floor(
-          1000 + Math.random() * 9000,
-        );
+        captcha.forEach((el) => {
+          el.textContent = Math.floor(1000 + Math.random() * 9000);
+        });
       });
 
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+      form.forEach((el) => {
+        el.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const name = el.querySelector("#name");
+          const email = el.querySelector("#email");
+          const phone = el.querySelector("#phone");  
+          const submit_btn = el.querySelector("#submit-btn");        
 
-        submit_btn.disabled = true;
-        submit_btn.textContent = "Sending...";
+          submit_btn.disabled = true;
+          submit_btn.textContent = "Sending...";
 
-        if (!name.value || !email.value || !phone.value) {
-          alert("Please fill all the fields");
-          submit_btn.disabled = false;
-          submit_btn.textContent = "Book a Free Consultation";
-          return;
-        }
-
-        if (captchaInput.value !== captcha.textContent) {
-          alert("Invalid Captcha");
-          submit_btn.disabled = false;
-          submit_btn.textContent = "Book a Free Consultation";
-          return;
-        }
-
-        try {
-          const res = await fetch(
-            "https://clove-dental-b-o1-0.onrender.com/api/send-email",
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                name: name.value,
-                email: email.value,
-                phone: phone.value,
-              }),
-            },
-          );
-
-          const data = await res.json();
-          console.log(data);
-
-          if (res.ok) {
-            form.reset();
-            // redirect to success page
-            window.location.href = `success.html?bookingId=${encodeURIComponent(data.bookingId)}&date=${encodeURIComponent(data.date)}`;
+          if (!name.value || !email.value || !phone.value) {
+            alert("Please fill all the fields");
             submit_btn.disabled = false;
             submit_btn.textContent = "Book a Free Consultation";
-          } else {
-            alert("Failed to send email");
+            return;
           }
-        } catch (err) {
-          console.log(err);
-          alert("Something went wrong");
-        }
+
+          if (captchaInput.value !== captcha.textContent) {
+            alert("Invalid Captcha");
+            submit_btn.disabled = false;
+            submit_btn.textContent = "Book a Free Consultation";
+            return;
+          }
+
+          try {
+            const res = await fetch(
+              "https://clove-dental-b-o1-0.onrender.com/api/send-email",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  name: name.value,
+                  email: email.value,
+                  phone: phone.value,
+                }),
+              },
+            );
+
+            const data = await res.json();
+            console.log(data);
+
+            if (res.ok) {
+              el.reset();
+              // redirect to success page
+              window.location.href = `success.html?bookingId=${encodeURIComponent(data.bookingId)}&date=${encodeURIComponent(data.date)}`;
+              submit_btn.disabled = false;
+              submit_btn.textContent = "Book a Free Consultation";
+            } else {
+              alert("Failed to send email");
+            }
+          } catch (err) {
+            console.log(err);
+            alert("Something went wrong");
+          }
+        });
       });
     </script>
   </body>
